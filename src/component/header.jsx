@@ -3,55 +3,127 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <header id="header" className="header d-flex align-items-center sticky-top">
-      <div className="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+    <header
+      style={{
+        position: "sticky",
+        top: "0",
+        zIndex: "999",
+        background: "#000", // black background
+        padding: "15px 0",
+        boxShadow: "0px 5px 20px rgba(204,18,241,.4)"
+      }}
+    >
+      <div className="container">
 
-    <Link to="/" className="logo d-flex align-items-center">
-  <img src="/img/logo.png" alt="Logo" />
-  <h1 className="sitename">Kouser</h1>
-</Link>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center"
+          }}
+        >
 
-        <nav id="navmenu" className="navmenu">
-          <ul>
-            <li>
-              <Link to="/" className="active">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/service">Services</Link>
-            </li>
-            <li>
-              <Link to="/portfolio">Portfolio</Link>
-            </li>
+          {/* Logo */}
 
-            <li className="dropdown">
-              <a href="#"><span>Dropdown</span> <i className="bi bi-chevron-down toggle-dropdown"></i></a>
-              <ul>
-                <li><a href="#">Dropdown 1</a></li>
-                <li className="dropdown">
-                  <a href="#"><span>Deep Dropdown</span> <i className="bi bi-chevron-down toggle-dropdown"></i></a>
-                  <ul>
-                    <li><a href="#">Deep Dropdown 1</a></li>
-                    <li><a href="#">Deep Dropdown 2</a></li>
-                    <li><a href="#">Deep Dropdown 3</a></li>
-                    <li><a href="#">Deep Dropdown 4</a></li>
-                    <li><a href="#">Deep Dropdown 5</a></li>
-                  </ul>
-                </li>
-                <li><a href="#">Dropdown 2</a></li>
-                <li><a href="#">Dropdown 3</a></li>
-                <li><a href="#">Dropdown 4</a></li>
-              </ul>
-            </li>
+          <Link
+            to="/"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              textDecoration: "none",
+              gap: "10px"
+            }}
+          >
+            <div
+              style={{
+                width: "45px",
+                height: "45px",
+                borderRadius: "50%",
+                background: "#cc12f1",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                color: "#fff",
+                fontSize: "22px",
+                fontWeight: "bold"
+              }}
+            >
+              K
+            </div>
 
-            <li>
-              <Link to="/Contact">Contact</Link>
-            </li>
+            <h2
+              style={{
+                margin:0,
+                color:"#cc12f1",
+                fontWeight:"bold"
+              }}
+            >
+              Kouser
+            </h2>
+
+          </Link>
+
+          {/* Menu */}
+
+          <ul
+            style={{
+              display:"flex",
+              gap:"35px",
+              listStyle:"none",
+              margin:0,
+              padding:0
+            }}
+          >
+
+            {[
+              ["Home","/"],
+              ["About","/about"],
+              ["Services","/service"],
+              ["Portfolio","/portfolio"],
+              ["Contact","/contact"]
+            ].map((item,index)=>(
+
+              <li key={index}>
+                <Link
+                  to={item[1]}
+                  style={{
+                    textDecoration:"none",
+                    color:"#fff",
+                    fontSize:"17px",
+                    fontWeight:"600",
+                    transition:"0.4s"
+                  }}
+                >
+                  {item[0]}
+                </Link>
+              </li>
+
+            ))}
+
           </ul>
-          <i className="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
+
+          {/* Button */}
+
+<a
+  href="/cv.pdf"
+  
+  style={{
+    border: "none",
+    padding: "12px 28px",
+    borderRadius: "30px",
+    background: "#cc12f1",
+    color: "#fff",
+    fontWeight: "bold",
+    cursor: "pointer",
+    boxShadow: "0px 5px 15px rgba(204,18,241,.5)",
+    textDecoration: "none",
+    display: "inline-block"
+  }}
+>
+  Download CV
+</a>
+
+        </div>
 
       </div>
     </header>

@@ -1,171 +1,173 @@
-import React from "react";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 
-// images ko import karo
-import app1 from "../img/portfolio/app-1.jpg";
-import app2 from "../img/portfolio/app-2.jpg";
-import app3 from "../img/portfolio/app-3.jpg";
-import product1 from "../img/portfolio/product-1.jpg";
-import product2 from "../img/portfolio/product-2.jpg";
-import product3 from "../img/portfolio/product-3.jpg";
-import branding1 from "../img/portfolio/branding-1.jpg";
-import branding2 from "../img/portfolio/branding-2.jpg";
-import branding3 from "../img/portfolio/branding-3.jpg";
-import books1 from "../img/portfolio/books-1.jpg";
-import books2 from "../img/portfolio/books-2.jpg";
-import books3 from "../img/portfolio/books-3.jpg";
+import hotel from "../img/portfolio/app-1.jpg";
+import buger from "../img/portfolio/buger.png"
+import icecream from "../img/portfolio/app-3.jpg";
+import restaurant from "../img/portfolio/product-1.jpg";
+
+const portfolioItems = [
+  {
+    title: "Hotel Management",
+    category: "hotel",
+    img: hotel,
+    desc: "Modern hotel management system",
+  },
+  {
+    title: "Burger Website",
+    category: "buger",
+    img: buger,
+    desc: "Fast food burger website",
+  },
+  {
+    title: "Ice Cream Shop",
+    category: "icecream",
+    img: icecream,
+    desc: "Beautiful ice cream shop website",
+  },
+  {
+    title: "Restaurant Website",
+    category: "restaurant",
+    img: restaurant,
+    desc: "Restaurant ordering website",
+  },
+  {
+    title: "Ice Cream Shop",
+    category: "icecream",
+    img: icecream,
+    desc: "Beautiful ice cream shop website",
+  },
+  {
+    title: "Restaurant Website",
+    category: "restaurant",
+    img: restaurant,
+    desc: "Restaurant ordering website",
+  },
+];
+
+/* ANIMATION VARIANT */
+const cardVariant = {
+  hidden: { opacity: 0, y: 60 },
+  show: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  }),
+};
 
 function Portfolio() {
+  const [filter, setFilter] = useState("all");
+
+  const filteredItems =
+    filter === "all"
+      ? portfolioItems
+      : portfolioItems.filter((item) => item.category === filter);
+
   return (
-    <section id="portfolio" className="portfolio section">
-      <div className="container section-title" data-aos="fade-up">
-        <h2>Portfolio</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div>
+    <>
+      <section
+        style={{
+          padding: "100px 20px",
+          background: "linear-gradient(135deg,#000,#1a001f,#cc12f1)",
+          marginBottom: "100px",
+        }}
+      >
+        <div className="container">
 
-      <div className="container">
-        <div className="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+          {/* TITLE */}
+          <h1
+            style={{
+              color: "white",
+              textAlign: "center",
+              marginBottom: "30px",
+            }}
+          >
+            My Portfolio
+          </h1>
 
-          <ul className="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" className="filter-active">All</li>
-            <li data-filter=".filter-app">App</li>
-            <li data-filter=".filter-product">Product</li>
-            <li data-filter=".filter-branding">Branding</li>
-            <li data-filter=".filter-books">Books</li>
-          </ul>
-
-          <div className="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-            
-            {/* App Items */}
-            <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src={app1} className="img-fluid" alt="App 1"/>
-              <div className="portfolio-info">
-                <h4>App 1</h4>
-                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                <a href={app1} title="App 1" data-gallery="portfolio-gallery-app" className="glightbox preview-link"><i className="bi bi-zoom-in"></i></a>
-                <a href="/portfolio-details" title="More Details" className="details-link"><i className="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-            
-            <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src={app2} className="img-fluid" alt="App 2"/>
-              <div className="portfolio-info">
-                <h4>App 2</h4>
-                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                <a href={app2} title="App 2" data-gallery="portfolio-gallery-app" className="glightbox preview-link"><i className="bi bi-zoom-in"></i></a>
-                <a href="/portfolio-details" title="More Details" className="details-link"><i className="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-
-            <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src={app3} className="img-fluid" alt="App 3"/>
-              <div className="portfolio-info">
-                <h4>App 3</h4>
-                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                <a href={app3} title="App 3" data-gallery="portfolio-gallery-app" className="glightbox preview-link"><i className="bi bi-zoom-in"></i></a>
-                <a href="/portfolio-details" title="More Details" className="details-link"><i className="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-
-            {/* Product Items */}
-            <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src={product1} className="img-fluid" alt="Product 1"/>
-              <div className="portfolio-info">
-                <h4>Product 1</h4>
-                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                <a href={product1} title="Product 1" data-gallery="portfolio-gallery-product" className="glightbox preview-link"><i className="bi bi-zoom-in"></i></a>
-                <a href="/portfolio-details" title="More Details" className="details-link"><i className="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-
-            <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src={product2} className="img-fluid" alt="Product 2"/>
-              <div className="portfolio-info">
-                <h4>Product 2</h4>
-                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                <a href={product2} title="Product 2" data-gallery="portfolio-gallery-product" className="glightbox preview-link"><i className="bi bi-zoom-in"></i></a>
-                <a href="/portfolio-details" title="More Details" className="details-link"><i className="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-
-            <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src={product3} className="img-fluid" alt="Product 3"/>
-              <div className="portfolio-info">
-                <h4>Product 3</h4>
-                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                <a href={product3} title="Product 3" data-gallery="portfolio-gallery-product" className="glightbox preview-link"><i className="bi bi-zoom-in"></i></a>
-                <a href="/portfolio-details" title="More Details" className="details-link"><i className="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-
-            {/* Branding Items */}
-            <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src={branding1} className="img-fluid" alt="Branding 1"/>
-              <div className="portfolio-info">
-                <h4>Branding 1</h4>
-                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                <a href={branding1} title="Branding 1" data-gallery="portfolio-gallery-branding" className="glightbox preview-link"><i className="bi bi-zoom-in"></i></a>
-                <a href="/portfolio-details" title="More Details" className="details-link"><i className="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-
-            <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src={branding2} className="img-fluid" alt="Branding 2"/>
-              <div className="portfolio-info">
-                <h4>Branding 2</h4>
-                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                <a href={branding2} title="Branding 2" data-gallery="portfolio-gallery-branding" className="glightbox preview-link"><i className="bi bi-zoom-in"></i></a>
-                <a href="/portfolio-details" title="More Details" className="details-link"><i className="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-
-            <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src={branding3} className="img-fluid" alt="Branding 3"/>
-              <div className="portfolio-info">
-                <h4>Branding 3</h4>
-                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                <a href={branding3} title="Branding 3" data-gallery="portfolio-gallery-branding" className="glightbox preview-link"><i className="bi bi-zoom-in"></i></a>
-                <a href="/portfolio-details" title="More Details" className="details-link"><i className="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-
-            {/* Books Items */}
-            <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <img src={books1} className="img-fluid" alt="Books 1"/>
-              <div className="portfolio-info">
-                <h4>Books 1</h4>
-                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                <a href={books1} title="Books 1" data-gallery="portfolio-gallery-book" className="glightbox preview-link"><i className="bi bi-zoom-in"></i></a>
-                <a href="/portfolio-details" title="More Details" className="details-link"><i className="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-
-            <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <img src={books2} className="img-fluid" alt="Books 2"/>
-              <div className="portfolio-info">
-                <h4>Books 2</h4>
-                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                <a href={books2} title="Books 2" data-gallery="portfolio-gallery-book" className="glightbox preview-link"><i className="bi bi-zoom-in"></i></a>
-                <a href="/portfolio-details" title="More Details" className="details-link"><i className="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-
-            <div className="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-              <img src={books3} className="img-fluid" alt="Books 3"/>
-              <div className="portfolio-info">
-                <h4>Books 3</h4>
-                <p>Lorem ipsum, dolor sit amet consectetur</p>
-                <a href={books3} title="Books 3" data-gallery="portfolio-gallery-book" className="glightbox preview-link"><i className="bi bi-zoom-in"></i></a>
-                <a href="/portfolio-details" title="More Details" className="details-link"><i className="bi bi-link-45deg"></i></a>
-              </div>
-            </div>
-
+          {/* FILTER BUTTONS */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              gap: "10px",
+              marginBottom: "50px",
+              flexWrap: "wrap",
+            }}
+          >
+            {["all", "hotel", "buger", "icecream", "restaurant"].map(
+              (btn, i) => (
+                <button
+                  key={i}
+                  onClick={() => setFilter(btn)}
+                  style={{
+                    padding: "10px 25px",
+                    border: "none",
+                    borderRadius: "30px",
+                    cursor: "pointer",
+                    transition: ".4s",
+                    background: filter === btn ? "#cc12f1" : "#111",
+                    color: "white",
+                  }}
+                >
+                  {btn}
+                </button>
+              )
+            )}
           </div>
 
+          {/* CARDS */}
+          <div className="row">
+            {filteredItems.map((item, index) => (
+              <motion.div
+                className="col-lg-3 col-md-6 mb-4"
+                key={index}
+                custom={index}
+                variants={cardVariant}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
+              >
+                <motion.div
+                  style={{
+                    background: "#111",
+                    borderRadius: "20px",
+                    overflow: "hidden",
+                    boxShadow: "0 5px 20px rgba(0,0,0,.5)",
+                  }}
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: "0 15px 35px rgba(204,18,241,0.4)",
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <img
+                    src={item.img}
+                    alt=""
+                    style={{
+                      width: "100%",
+                      height: "250px",
+                      objectFit: "cover",
+                    }}
+                  />
+
+                  <div style={{ padding: "20px" }}>
+                    <h3 style={{ color: "#cc12f1" }}>{item.title}</h3>
+
+                    <p style={{ color: "#ddd" }}>{item.desc}</p>
+                  </div>
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 
 export default Portfolio;
-

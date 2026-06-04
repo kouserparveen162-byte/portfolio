@@ -1,93 +1,209 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 const services = [
-{
-  icon: "bi-activity",
-  title: ".NET",
-  description:
-    ".NET ek powerful framework hai jo secure, scalable aur high-performance applications banane ke liye use hota hai. Iska use web, desktop aur enterprise-level applications develop karne ke liye kiya jata hai.",
-  delay: 100,
-},
-{
-  icon: "bi-broadcast",
-  title: "PHP",
-  description:
-    "PHP ek powerful server-side scripting language hai jo dynamic websites aur web applications banane ke liye use hoti hai. Ye databases ke sath easily integrate hoti hai aur forms, authentication, aur backend logic handle karti hai.",
-  delay: 200,
-},
-{
-  icon: "bi-easel",
-  title: "Angular",
-  description:
-    "Angular ek powerful frontend framework hai jo dynamic aur scalable single-page applications banane ke liye use hota hai. Ye .NET APIs ke sath easily integrate hota hai aur secure, fast data communication provide karta hai.",
-  delay: 300,
-},
-{
-  icon: "bi-bounding-box-circles",
-  title: "MERN Stack",
-  description:
-    "MERN Stack ek full-stack development technology hai jisme MongoDB, Express.js, React.js aur Node.js shamil hote hain. Iska use modern, scalable aur high-performance web applications banane ke liye kiya jata hai.",
-  delay: 400,
-},
-
-{
-  icon: "bi-calendar4-week",
-  title: "Flutter",
-  description:
-    "Flutter ek open-source UI framework hai jo single codebase se fast aur beautiful mobile applications (Android & iOS) develop karne ke liye use hota hai. Ye high performance aur smooth UI provide karta hai.",
-  delay: 500,
-},
-
-{
-  icon: "bi-chat-square-text",
-  title: "Social Media Marketing",
-  description:
-    "Social Media Marketing ka use brands aur businesses ki online presence grow karne ke liye hota hai. Isme content creation, audience engagement, page management aur analytics ke zariye reach aur sales improve ki jati hai.",
-  delay: 600,
-},
-
+  {
+    icon: "bi-code-slash",
+    title: "React Development",
+    description:
+      "Modern, fast and interactive web applications built with React.js.",
+  },
+  {
+    icon: "bi-window",
+    title: "Frontend Development",
+    description:
+      "Responsive and user-friendly interfaces using HTML, CSS, Bootstrap and JavaScript.",
+  },
+  {
+    icon: "bi-server",
+    title: "Node.js Backend",
+    description:
+      "Scalable backend solutions with Node.js and Express.js.",
+  },
+  {
+    icon: "bi-database",
+    title: "MongoDB Database",
+    description:
+      "Efficient database design and management using MongoDB.",
+  },
+  {
+    icon: "bi-phone",
+    title: "Responsive Design",
+    description:
+      "Mobile-friendly websites that work perfectly on all devices.",
+  },
+  {
+    icon: "bi-cloud-arrow-up",
+    title: "API Integration",
+    description:
+      "REST API integration and data handling for dynamic applications.",
+  },
+  {
+    icon: "bi-palette",
+    title: "UI / UX Design",
+    description:
+      "Clean, modern and attractive user interface design.",
+  },
+  {
+    icon: "bi-git",
+    title: "Git & GitHub",
+    description:
+      "Version control, collaboration and project management using Git.",
+  },
+  {
+    icon: "bi-layers",
+    title: "Full Stack Development",
+    description:
+      "Complete MERN stack applications from frontend to backend.",
+  },
 ];
 
 function Services() {
   return (
-    <section id="services" className="services section">
-      <div className="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <p>
-          Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
-          consectetur velit
-        </p>
-      </div>
-
-      <div className="container">
-        <div className="row gy-4">
-          {services.map((service, index) => (
-            <div
-              className="col-lg-4 col-md-6"
-              data-aos="fade-up"
-              data-aos-delay={service.delay}
-              key={index}
+    <>
+      <section
+        id="services"
+        style={{
+          padding: "100px 20px",
+          background: "#0a0a0a",
+        }}
+      >
+        <div className="container">
+          {/* Heading */}
+          <div
+            style={{
+              textAlign: "center",
+              marginBottom: "60px",
+            }}
+          >
+            <h1
+              style={{
+                color: "#cc12f1",
+                fontSize: "55px",
+                fontWeight: "700",
+                marginBottom: "15px",
+              }}
             >
-              <div className="service-item position-relative">
-                <div className="icon">
-                  <i className={`bi ${service.icon}`}></i>
+              My Services
+            </h1>
+
+            <p
+              style={{
+                color: "#ccc",
+                fontSize: "18px",
+              }}
+            >
+              Technologies & Services I Work With
+            </p>
+          </div>
+
+          <div className="row">
+            {services.map((service, index) => (
+              <div
+                className="col-lg-4 col-md-6 mb-4"
+                key={index}
+                style={{
+                  animation:
+                    index % 2 === 0
+                      ? "leftToRight 1.2s ease"
+                      : "rightToLeft 1.2s ease",
+                }}
+              >
+                <div
+                  style={{
+                    background: "#111",
+                    padding: "30px",
+                    borderRadius: "20px",
+                    textAlign: "center",
+                    height: "100%",
+                    cursor: "pointer",
+                    transition: "0.4s",
+                    border: "1px solid rgba(204,18,241,.2)",
+                    boxShadow: "0 0 15px rgba(0,0,0,.3)",
+                    color: "#fff",
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.transform =
+                      "translateY(-10px) scale(1.03)";
+                    e.currentTarget.style.boxShadow =
+                      "0 0 25px rgba(204,18,241,.6)";
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.transform =
+                      "translateY(0px) scale(1)";
+                    e.currentTarget.style.boxShadow =
+                      "0 0 15px rgba(0,0,0,.3)";
+                  }}
+                >
+                  {/* Icon Circle */}
+                  <div
+                    style={{
+                      width: "90px",
+                      height: "90px",
+                      margin: "0 auto 20px",
+                      borderRadius: "50%",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      background: "rgba(204,18,241,.1)",
+                      border: "2px solid #cc12f1",
+                      color: "#cc12f1",
+                      fontSize: "40px",
+                    }}
+                  >
+                    <i className={`bi ${service.icon}`}></i>
+                  </div>
+
+                  <h3
+                    style={{
+                      marginBottom: "15px",
+                      fontWeight: "600",
+                    }}
+                  >
+                    {service.title}
+                  </h3>
+
+                  <p
+                    style={{
+                      color: "#ccc",
+                      lineHeight: "28px",
+                    }}
+                  >
+                    {service.description}
+                  </p>
                 </div>
-                <a href="#" className="stretched-link">
-                  <h3>{service.title}</h3>
-                </a>
-                <p>{service.description}</p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
+      <style>
+        {`
+        @keyframes leftToRight {
+          from {
+            opacity: 0;
+            transform: translateX(-100px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
 
-
-
-
+        @keyframes rightToLeft {
+          from {
+            opacity: 0;
+            transform: translateX(100px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        `}
+      </style>
+    </>
   );
 }
 
