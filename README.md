@@ -12,7 +12,7 @@ A responsive full-stack portfolio application built to showcase my projects, ski
 
 ## 📸 Demo & Screenshots
 
-![Portfolio Preview](./src/img/screenshot.png)
+![Portfolio Preview](./src/img/Portfolio.png)
 
 ---
 
