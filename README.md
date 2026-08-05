@@ -6,6 +6,37 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+# Portfolio Website 🚀
+
+A responsive full-stack portfolio application built to showcase my projects, skills, and background as a Frontend Developer.
+
+## 📸 Demo & Screenshots
+
+![Portfolio Preview](./src/img/screenshot.png)
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React.js, JavaScript (ES6+), HTML5, CSS3 / Tailwind CSS
+- **State Management & Tooling:** Context API / Redux, Git, GitHub, Vercel
+
+---
+
+## 🚀 Getting Started
+
+Follow these steps to run the project locally on your machine:
+
+### Prerequisites
+
+Make sure you have **Node.js** and **npm** installed on your system.
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/kouserparveen162-byte/portfolio.git](https://github.com/kouserparveen162-byte/portfolio.git)
+
 ### `npm start`
 
 Runs the app in the development mode.\
